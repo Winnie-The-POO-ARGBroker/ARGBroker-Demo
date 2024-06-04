@@ -1,6 +1,6 @@
-<h1 align="center"> 💰 ARGBroker Demo</h1>
+<h1 align="center"> 💰 POOBroker Demo</h1>
 
-Debido a la necesidad de ISPC Cba de la creación de una aplicación que realice transacciones entre inversores, al inscribirse como broker ante la Bolsa de Valores de Buenos Aires MERVAL. Hemos desarrollado ArgBroker Demo, una plataforma demostrativa del proceso de inversión y compra de acciones, permitiendo al usuario comprender el mercado y sus transacciónes sin enfrentarse al riesgo financiero que suponen estas acciones económicas.
+Debido a la necesidad de ISPC Cba de la creación de una aplicación que realice transacciones entre inversores, al inscribirse como broker ante la Bolsa de Valores de Buenos Aires MERVAL. Hemos desarrollado POOBroker Demo, una plataforma demostrativa del proceso de inversión y compra de acciones, permitiendo al usuario comprender el mercado y sus transacciónes sin enfrentarse al riesgo financiero que suponen estas acciones económicas.
 
 
 <h2>Propuesta formal para el desarrollo de un broker demo</h2>
