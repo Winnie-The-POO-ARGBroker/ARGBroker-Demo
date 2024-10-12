@@ -5,7 +5,7 @@ class Usuario:
         self.cuil = cuil
         self.email = email
         self.contrasena = contrasena
-        self.saldo = 1000000
+        self.saldo = saldo
         self.total_invertido = total_invertido
         self.rendimiento_total = rendimiento_total
         self.portafolio = {}  # Diccionario para almacenar activos y cantidades
