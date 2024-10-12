@@ -30,7 +30,7 @@ def registrar_inversor():
         pass
 
 def iniciar_sesion():
-    print("=== Inicio de sesión ===")
+    print("=== INICIO DE SESIÓN ===")
     email = input("Ingrese su email: ")
 
     gestor = GestorDB()
