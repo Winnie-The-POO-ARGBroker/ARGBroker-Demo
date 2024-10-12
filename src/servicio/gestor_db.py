@@ -4,10 +4,10 @@ class GestorDB:
     def connect(self):
         try:
             conexion = mysql.connector.connect(
-                host="127.0.0.1",  # Usa solo la IP o "localhost"
-                user="root",  # Cambia esto por tu usuario de MySQL
-                password="4413",  # Cambia esto por tu contraseña de MySQL
-                database="ARGBroker"  # Cambia esto por el nombre de tu base de datos
+                host="bntfytnw6iyhnscbbysh-mysql.services.clever-cloud.com",
+                user="uryn6gsp8xxtqtx8",
+                password="5XkCTptUFnSHg8DQribd",
+                database="bntfytnw6iyhnscbbysh"
             )
             return conexion
         except mysql.connector.Error as e:

@@ -1,7 +1,7 @@
-from servicio.gestor_db import GestorDB
 from dao.usuario_dao import UsuarioDAO
-from dao.accion_dao import ActivoDAO
+from dao.accion_dao import AccionDAO
 from models.usuario import Usuario
+from servicio.gestor_db import GestorDB
 
 def registrar_inversor():
     print("=== Registrar nuevo inversor ===")

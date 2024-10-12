@@ -1,7 +1,7 @@
 import mysql.connector
-from models.accion import Activo
+from models.accion import Accion
 
-class ActivoDAO:
+class AccionDAO:
     def __init__(self, conexion):
         self.conexion = conexion
 
@@ -12,7 +12,7 @@ class ActivoDAO:
             cursor.execute("SELECT * FROM activos")
             rows = cursor.fetchall()
             for row in rows:
-                activo = Activo(row[1], row[2], row[3])  # Asumiendo que el orden de las columnas es correcto
+                activo = Accion(row[1], row[2], row[3])  # Asumiendo que el orden de las columnas es correcto
                 activos.append(activo)
             return activos
         except mysql.connector.Error as err:
