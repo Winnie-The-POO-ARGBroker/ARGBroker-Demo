@@ -1,4 +1,8 @@
 import mysql.connector
+<<<<<<< HEAD
+=======
+import bcrypt
+>>>>>>> Magali
 from models.usuario import Usuario
 
 class UsuarioDAO:
@@ -8,6 +12,7 @@ class UsuarioDAO:
     def insertar(self, usuario):
         try:
             cursor = self.conexion.cursor()
+<<<<<<< HEAD
             sql = """
             INSERT INTO usuarios 
             (nombre, apellido, cuil, email, contrasena, saldo, total_invertido, rendimiento_total) 
@@ -17,6 +22,16 @@ class UsuarioDAO:
             cursor.execute(sql, valores)
             self.conexion.commit()
             print("Usuario registrado exitosamente.")
+=======
+            query = """
+                INSERT INTO usuarios (nombre, apellido, cuil, email, contrasena)
+                VALUES (%s, %s, %s, %s, %s)
+            """
+            # Aquí no hasheamos la contraseña porque ya debería estar hasheada en el objeto Usuario
+            contrasena_hash = usuario.contrasena.decode('utf-8')  # Almacenamos el hash como string
+            cursor.execute(query, (usuario.nombre, usuario.apellido, usuario.cuil, usuario.email, contrasena_hash))
+            self.conexion.commit()  # Confirmar los cambios
+>>>>>>> Magali
             return True
         except mysql.connector.Error as err:
             print(f"Error: {err}")
@@ -24,6 +39,7 @@ class UsuarioDAO:
         finally:
             cursor.close()
 
+<<<<<<< HEAD
     def obtener_por_email(self, email):
         try:
             # Usamos MySQLCursorDict para devolver los resultados como diccionario
@@ -50,6 +66,37 @@ class UsuarioDAO:
         finally:
             cursor.close()
 
+=======
+    def verificar_usuario(self, email):
+        cursor = self.conexion.cursor()
+        query = "SELECT saldo FROM usuarios WHERE email = %s"
+        cursor.execute(query, (email,))
+        saldo = cursor.fetchone()
+        cursor.close()
+        return saldo[0] if saldo else None
+
+    def obtener_por_email(self, email):
+        cursor = self.conexion.cursor()
+        query = "SELECT * FROM usuarios WHERE email = %s"
+        cursor.execute(query, (email,))
+        resultado = cursor.fetchone()
+        cursor.close()
+        
+        if resultado:
+            return Usuario(
+                resultado[0],
+                resultado[1],
+                resultado[2],
+                resultado[3],
+                resultado[4],
+                resultado[5].encode('utf-8'),  # Convertimos el hash de vuelta a bytes
+                resultado[6],
+                resultado[7],
+                resultado[8]
+            )
+        
+        return None
+>>>>>>> Magali
 
     def actualizar_usuario(self, usuario):
         try:
@@ -66,3 +113,16 @@ class UsuarioDAO:
             print(f"Error: {err}")
         finally:
             cursor.close()
+<<<<<<< HEAD
+=======
+
+    def verificar_contrasena(self, email, contrasena_ingresada):
+        usuario = self.obtener_por_email(email)
+        if usuario:
+            # Compara la contraseña ingresada (convertida a bytes) con el hash almacenado (ya en bytes)
+            if bcrypt.checkpw(contrasena_ingresada.encode('utf-8'), usuario.contrasena):
+                return True  # La contraseña es correcta
+            else:
+                return False  # La contraseña es incorrecta
+        return False  # El usuario no existe
+>>>>>>> Magali
