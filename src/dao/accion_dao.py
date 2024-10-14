@@ -1,24 +1,11 @@
 import mysql.connector
 from models.accion import Accion
-<<<<<<< HEAD
-=======
 from decimal import Decimal
->>>>>>> Magali
 
 class AccionDAO:
     def __init__(self, conexion):
         self.conexion = conexion
 
-<<<<<<< HEAD
-    def obtener_acciones(self):
-        activos = []
-        try:
-            cursor = self.conexion.cursor()
-            cursor.execute("SELECT * FROM activos")
-            rows = cursor.fetchall()
-            for row in rows:
-                activo = Accion(row[1], row[2], row[3])  # Asumiendo que el orden de las columnas es correcto
-=======
     def obtener_por_nombre(self, nombre_empresa):
         cursor = self.conexion.cursor()
         query = """
@@ -111,7 +98,6 @@ class AccionDAO:
                     maximo_diario=Decimal(row[10]),
                     ultimo_cierre=Decimal(row[11])
                 )
->>>>>>> Magali
                 activos.append(activo)
             return activos
         except mysql.connector.Error as err:
@@ -119,11 +105,6 @@ class AccionDAO:
             return []
         finally:
             cursor.close()
-<<<<<<< HEAD
-    
-    def actualizar_accion(self, accion):
-        pass
-=======
 
     def insertar_accion(self, accion):
         """Inserta una nueva acción en la base de datos."""
@@ -183,4 +164,3 @@ class AccionDAO:
             print(f"Error al actualizar acción: {err}")
         finally:
             cursor.close()
->>>>>>> Magali

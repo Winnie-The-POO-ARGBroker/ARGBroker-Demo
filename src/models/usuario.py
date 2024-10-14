@@ -1,26 +1,12 @@
-<<<<<<< HEAD
-class Usuario:
-    def __init__(self, nombre, apellido, cuil, email, contrasena, saldo=0, total_invertido=0, rendimiento_total=0):
-=======
 import bcrypt
 
 class Usuario:
     def __init__(self, id, nombre, apellido, cuil, email, contrasena, saldo=0, total_invertido=0, rendimiento_total=0):
         self.id = id
->>>>>>> Magali
         self.nombre = nombre
         self.apellido = apellido
         self.cuil = cuil
         self.email = email
-<<<<<<< HEAD
-        self.contrasena = contrasena
-        self.saldo = saldo
-        self.total_invertido = total_invertido
-        self.rendimiento_total = rendimiento_total
-        self.portafolio = {}  # Diccionario para almacenar activos y cantidades
-
-    def agregar_accion(self, nombre_accion, cantidad, precio_compra):
-=======
         # Si la contraseña parece ser un hash (en bytes), no la hashees nuevamente
         if isinstance(contrasena, bytes):
             self.contrasena = contrasena  # Ya es un hash
@@ -46,7 +32,6 @@ class Usuario:
             print("No tienes suficiente saldo para realizar esta compra.")
             return
         
->>>>>>> Magali
         if nombre_accion in self.portafolio:
             self.portafolio[nombre_accion]['cantidad'] += cantidad
         else:
@@ -55,14 +40,6 @@ class Usuario:
                 'precio_compra': precio_compra,
                 'precio_venta': precio_compra  # Inicialmente el precio de venta es igual al precio de compra
             }
-<<<<<<< HEAD
-        # Actualizar el saldo y el total invertido
-        self.saldo -= cantidad * precio_compra
-        self.total_invertido += cantidad * precio_compra
-
-    def quitar_accion(self, nombre_accion, cantidad):
-        if nombre_accion in self.portafolio:
-=======
 
         # Actualizar el saldo y el total invertido
         self.saldo -= total_costo
@@ -74,7 +51,6 @@ class Usuario:
                 print("No tienes suficientes acciones para vender.")
                 return
             
->>>>>>> Magali
             self.portafolio[nombre_accion]['cantidad'] -= cantidad
             if self.portafolio[nombre_accion]['cantidad'] <= 0:
                 del self.portafolio[nombre_accion]
@@ -85,11 +61,6 @@ class Usuario:
         print(f"Apellido: {self.apellido}")
         print(f"CUIL: {self.cuil}")
         print(f"Email: {self.email}")
-<<<<<<< HEAD
-        print(f"Saldo: {self.saldo}")
-        print(f"Total Invertido: {self.total_invertido}")
-        print(f"Rendimiento Total: {self.rendimiento_total}")
-=======
         print(f"Saldo: ${self.saldo:.2f}")
         print(f"Total Invertido: ${self.total_invertido:.2f}")
         print(f"Rendimiento Total: ${self.rendimiento_total:.2f}")
@@ -118,4 +89,3 @@ class Usuario:
             self.portafolio[accion]['cantidad'] -= cantidad
             if self.portafolio[accion]['cantidad'] <= 0:
                 del self.portafolio[accion]
->>>>>>> Magali
