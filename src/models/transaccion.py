@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-class Transaccion:
-    def __init__(self, usuario, accion, tipo, cantidad, precio, comision=0.015):
-        self.usuario = usuario
-        self.accion = accion
-        self.tipo = tipo  # 'compra' o 'venta'
-        self.cantidad = cantidad
-        self.precio = precio
-        self.comision = comision
-=======
 from decimal import Decimal
 
 class Transaccion:
@@ -16,9 +6,8 @@ class Transaccion:
         self.accion_id = accion_id    # ID de la acción en lugar del objeto acción
         self.tipo = tipo  # 'compra' o 'venta'
         self.cantidad = cantidad
-        self.precio = Decimal (precio)
-        self.comision = Decimal (comision)
->>>>>>> Magali
+        self.precio = Decimal(precio)
+        self.comision = Decimal(comision)
         self.total = self.calcular_total()
 
     def calcular_total(self):
