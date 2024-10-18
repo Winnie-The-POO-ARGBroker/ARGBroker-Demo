@@ -6,8 +6,8 @@ class Transaccion:
         self.accion_id = accion_id    # ID de la acción en lugar del objeto acción
         self.tipo = tipo  # 'compra' o 'venta'
         self.cantidad = cantidad
-        self.precio = Decimal (precio)
-        self.comision = Decimal (comision)
+        self.precio = Decimal(precio)
+        self.comision = Decimal(comision)
         self.total = self.calcular_total()
 
     def calcular_total(self):
